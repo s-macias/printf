@@ -1,7 +1,6 @@
 #include "holberton.h"
 #include <stdarg.h>
 #include <unistd.h>
-#include <stdio.h>
 /**
  * _putchar - writes the character c to stdout
  * @c: The character to print
@@ -13,6 +12,16 @@ int _putchar(char c)
 {
 	return (write(1, &c, 1));
 }
+void _printf_string(char * tstring)
+{
+	int j = 0;
+	do {
+		_putchar(tstring[j]);
+		j++;
+	}
+
+	while (tstring[j] != '\0');
+}
 /**
  * _printf - the function printf
  *@format:char the pointer
@@ -20,11 +29,8 @@ int _putchar(char c)
  */
 int _printf(const char *format, ...)
 {
-	int i = 0;
+	int i = 0, k = 0;
 	char type;
-	int j;
-	int k = 0;
-	char *tstring;
 
 	va_list list;
 
@@ -41,15 +47,8 @@ int _printf(const char *format, ...)
 			}
 			if (type == 's')
 			{
-				tstring = va_arg(list, char*);
-				j = 0;
-				do {
-					_putchar(tstring[j]);
-					j++;
-					k++;
-				}
-
-				while (tstring[j] != '\0');
+				_printf_string(va_arg(list, char*));
+				k++;
 			}
 			if (type == '%')
 			{
@@ -63,7 +62,7 @@ int _printf(const char *format, ...)
 			k++;
 		}
 
-	i++;
+		i++;
 	}
 	return (k);
 }
