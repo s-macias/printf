@@ -12,15 +12,19 @@ int _putchar(char c)
 {
 	return (write(1, &c, 1));
 }
-void _printf_string(char * tstring)
+/**
+ * _printf_string - the function printfstring
+ *@tstring:char the pointer
+ * Return: Always 0
+ */
+void _printf_string(char *tstring)
 {
 	int j = 0;
+
 	do {
 		_putchar(tstring[j]);
 		j++;
-	}
-
-	while (tstring[j] != '\0');
+	} while (tstring[j] != '\0');
 }
 /**
  * _printf - the function printf
