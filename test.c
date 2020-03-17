@@ -22,7 +22,8 @@ int _printf(const char *format, ...)
 {
 	int i = 0;
 	char type;
-	int j, k;
+	int j;
+	int k = 0;
 	char *tstring;
 
 	va_list list;
@@ -50,7 +51,18 @@ int _printf(const char *format, ...)
 
 				while (tstring[j] != '\0');
 			}
+			if (type == '%')
+			{
+				_putchar('%');
+				k++;
+			}
 		}
+		else
+		{
+			_putchar(format[i]);
+			k++;
+		}
+
 	i++;
 	}
 	return (k);
