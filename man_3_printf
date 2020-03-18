@@ -1,2 +1,42 @@
-This is the manual page.
+% _printf Version 1.0 | Documentation
 
+_PRINTF
+====
+
+**_printf**  prints formatted text
+
+SYNOPSIS
+========
+
+| int _printf(const char *format, ...)
+
+DESCRIPTION
+===========
+
+Prints formatted text to the terminal. It prints different kinds of output
+depending on a conversion specifier defined by the user.
+This specifiers are defined by a % and a character:
+c to print a character
+s to print a string
+% to print the % symbol
+d to print a decimal
+i to print an integer
+It returns the number of characters printed.
+
+Example:
+
+printf("%d", n);
+
+This line of code would print the integer n; we know it is an integer because %d
+is the conversion specifier for integers.
+
+FILES
+=====
+
+*_printf.c*
+
+*holberton.h*
+
+AUTHOR
+======
+Eleanny Garcia and Sandra Macias
