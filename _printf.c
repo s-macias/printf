@@ -82,6 +82,9 @@ int _printf(const char *format, ...)
 				k = k + _putchar('%');
 			if (type == 'd' || type == 'i')
 				k = k + print_numbers(va_arg(list, int));
+			if (type != 'c' && type != 's' && type != '%'
+			    && type != 'd' && type != 'i')
+				k = k + _putchar('%') + _putchar(type);
 		}
 		else
 			k = k + _putchar(format[i]);
