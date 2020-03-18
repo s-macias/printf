@@ -1,4 +1,4 @@
-% _printf Version 1.0 | Documentation
+_printf (3) | Documentation
 
 _PRINTF
 ====
@@ -10,8 +10,8 @@ SYNOPSIS
 
 | int _printf(const char *format, ...)
 
-DESCRIPTION
-===========
+NAME
+=====
 
 Prints formatted text to the terminal. It prints different kinds of output
 depending on a conversion specifier defined by the user.
@@ -23,9 +23,18 @@ d to print a decimal
 i to print an integer
 It returns the number of characters printed.
 
+
+RETURN VALUE
+============
+It returns an integer that represents the number of characters printed.
+
 Example:
 
-printf("%d", n);
+printf("%d", 7);
+
+Output: 7
+REturn: 1
+
 
 This line of code would print the integer n; we know it is an integer because %d
 is the conversion specifier for integers.
@@ -40,3 +49,5 @@ FILES
 AUTHOR
 ======
 Eleanny Garcia and Sandra Macias
+
+18/03/2020
