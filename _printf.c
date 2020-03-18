@@ -16,7 +16,6 @@ int _putchar(char c)
 
 /**
  * print_numbers - prints a number
- * _putchar - prints char
  * @n: integer to be printed
  * Return: integer
  */
@@ -38,6 +37,23 @@ int print_numbers(int n)
 	if (number / 10 != '\0')
 		i = i + print_numbers(number / 10);
 	i = i + _putchar(number % 10 + '0');
+	return (i);
+}
+
+/**
+ * print_unsigned - prints an unsigned integer
+ * @number: unsigned integer to be printed
+ * @mode: identifies base notation: 8, 10 or 16
+ * Return: integer
+ */
+
+int print_unsigned(unsigned int number, int mode)
+{
+	int i = 0;
+
+	if (number / mode != '\0')
+		i = i + print_numbers(number / mode);
+	i = i + _putchar(number % mode + '0');
 	return (i);
 }
 
@@ -82,8 +98,18 @@ int _printf(const char *format, ...)
 				k = k + _putchar('%');
 			if (type == 'd' || type == 'i')
 				k = k + print_numbers(va_arg(list, int));
+			if (type == 'u')
+				k = k + print_unsigned
+					(va_arg(list, unsigned int), 10);
+			if (type == 'o')
+				k = k + print_unsigned
+					(va_arg(list, unsigned int), 8);
+			if (type == 'x' || type == 'X')
+				k = k + print_unsigned
+					(va_arg(list, unsigned int), 16);
 			if (type != 'c' && type != 's' && type != '%'
-			    && type != 'd' && type != 'i')
+			    && type != 'd' && type != 'i' && type != 'u'
+			    && type != 'o' && type != 'x' && type != 'X')
 				k = k + _putchar('%') + _putchar(type);
 		}
 		else
