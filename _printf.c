@@ -1,6 +1,7 @@
 #include "holberton.h"
 #include <stdarg.h>
 #include <unistd.h>
+
 /**
  * _putchar - writes the character c to stdout
  * @c: The character to print
@@ -10,14 +11,42 @@
  */
 int _putchar(char c)
 {
-	return (write(1, &c, 1));
+        return (write(1, &c, 1));
 }
+
+/**
+ * print_numbers - prints a number
+ * _putchar - prints char
+ * @n: integer to be printed
+ * Return: integer
+ */
+
+int print_numbers(int n)
+{
+        unsigned int number;
+        int i = 0;
+
+        if (n < 0)
+        {
+                number = -n;
+                i = i + _putchar('-');
+        }
+        else
+        {
+                number = n;
+        }
+        if (number / 10 != '\0')
+                i = i + print_numbers(number / 10);
+        i = i + _putchar(number % 10 + '0');
+        return (i);
+}
+
 /**
  * _printf_string - the function printfstring
  *@tstring:char the pointer
  * Return: Always 0
  */
-void _printf_string(char *tstring)
+int _printf_string(char *tstring)
 {
 	int j = 0;
 
@@ -25,6 +54,7 @@ void _printf_string(char *tstring)
 		_putchar(tstring[j]);
 		j++;
 	} while (tstring[j] != '\0');
+	return (j);
 }
 /**
  * _printf - the function printf
@@ -45,27 +75,16 @@ int _printf(const char *format, ...)
 		{
 			type = format[++i];
 			if (type == 'c')
-			{
-				_putchar((char)va_arg(list, int));
-				k++;
-			}
+				k = k + _putchar((char)va_arg(list, int));
 			if (type == 's')
-			{
-				_printf_string(va_arg(list, char*));
-				k++;
-			}
+				k = k + _printf_string(va_arg(list, char*));
 			if (type == '%')
-			{
-				_putchar('%');
-				k++;
-			}
+				k = k + _putchar('%');
+			if (type == 'd' || type == 'i')
+				k = k + print_numbers(va_arg(list, int));
 		}
 		else
-		{
-			_putchar(format[i]);
-			k++;
-		}
-
+			k = k + _putchar(format[i]);
 		i++;
 	}
 	return (k);
