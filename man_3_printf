@@ -1,4 +1,4 @@
-_printf (3) | Documentation
+_printf(3) | Documentation
 
 _PRINTF
 ====
@@ -8,7 +8,10 @@ _PRINTF
 SYNOPSIS
 ========
 
+#include <stdio.h>
+#include <stdarg.h>
 | int _printf(const char *format, ...)
+
 
 NAME
 =====
@@ -26,14 +29,17 @@ It returns the number of characters printed.
 
 RETURN VALUE
 ============
+
 It returns an integer that represents the number of characters printed.
 
-Example:
+
+EXAMPLE
+=======
 
 printf("%d", 7);
 
 Output: 7
-REturn: 1
+Return: 1
 
 
 This line of code would print the integer n; we know it is an integer because %d
@@ -46,8 +52,8 @@ FILES
 
 *holberton.h*
 
-AUTHOR
-======
+AUTHORS
+=======
 Eleanny Garcia and Sandra Macias
 
 18/03/2020
