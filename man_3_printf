@@ -1,7 +1,9 @@
 _printf(3) | Documentation
 
-_PRINTF
+
+NAME
 ====
+_printf
 
 **_printf**  prints formatted text
 
@@ -13,25 +15,26 @@ SYNOPSIS
 | int _printf(const char *format, ...)
 
 
-NAME
-=====
+DESCRIPTION
+===========
 
-Prints formatted text to the terminal. It prints different kinds of output
-depending on a conversion specifier defined by the user.
-This specifiers are defined by a % and a character:
+The function prints formatted text to the standard output. It prints different
+kinds of output depending on a conversion specifier defined by the user.
+
+FLAG CHARACTERS
+===============
+
+The conversion specifiers are defined by a % and a character:
 c to print a character
 s to print a string
 % to print the % symbol
 d to print a decimal
 i to print an integer
-It returns the number of characters printed.
-
 
 RETURN VALUE
 ============
 
 It returns an integer that represents the number of characters printed.
-
 
 EXAMPLE
 =======
